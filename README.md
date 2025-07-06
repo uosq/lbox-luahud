@@ -21,6 +21,12 @@ How to build: `./build.sh`
 
 ## Previews
 
+The images might not look like how they actually are
+
+Last time the previews were updated: `06/07/2025` (DD/MM/YYYY)
+
+---
+
 generic (most weapons)
 
 ![Most weapons](previews/generic.png)
