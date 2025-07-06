@@ -75,7 +75,7 @@ local classes = {
 }
 
 local function DrawDebugInfo()
-	utils.DrawText(nil, 10, 10, "luahud - latest commit: f28296774dce2036016779321de878ed48d4e860")
+	utils.DrawText(nil, 10, 10, "luahud - latest commit: 3d07070cb78bc5f290f64c2b6ddf76d641085021")
 end
 
 local function Draw()
