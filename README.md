@@ -19,24 +19,29 @@ How to build: `./build.sh`
 ## Previews
 
 generic (most weapons)
+
 ![Most weapons](previews/generic.png)
 
 ---
 
 engineer
+
 ![Engineer](previews/engineer.png)
 
 ---
 
 sniper
+
 ![alt text](previews/sniper.png)
 
 ---
 
 spy
+
 ![alt text](previews/spy.png)
 
 ---
 
 demoman
+
 ![alt text](previews/demo.png)
