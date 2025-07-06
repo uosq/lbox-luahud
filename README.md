@@ -14,7 +14,7 @@ I dont know the full windows path lol
 
 Requirements:
 
-- Luabundler
+- Luabundler (On NixOS you can use [this one](https://github.com/uosq/luabundler-nix))
 - A Linux shell (Bash, ZSH, Fish, ...)
 
 How to build: `./build.sh`
