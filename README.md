@@ -8,7 +8,7 @@ Default path (if you installed TF2 in the default storage) is: `~/.steam/steam/s
 
 Windows: put it in %localappdata%
 
-I dont know the full windows path (lol)
+I dont know the full windows path lol
 
 # How to build
 
