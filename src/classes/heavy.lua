@@ -1,14 +1,14 @@
 local heavy = {}
 
----@param plocal Entity
----@param current_weapon Entity
+---@param pLocal Entity
+---@param pWeapon Entity
 ---@param info Info
 ---@param utils Utils
-function heavy:Run(plocal, current_weapon, info, utils)
-	local sandvich = plocal:GetEntityForLoadoutSlot(E_LoadoutSlot.LOADOUT_POSITION_SECONDARY)
+function heavy:Run(pLocal, pWeapon, info, utils)
+	local sandvich = pLocal:GetEntityForLoadoutSlot(E_LoadoutSlot.LOADOUT_POSITION_SECONDARY)
 	if sandvich and sandvich:GetClass() == "CTFLunchBox" then
 		local width, height, x, y
-		local ready = plocal:GetPropDataTableInt("m_iAmmo")[5] == 1
+		local ready = pLocal:GetPropDataTableInt("m_iAmmo")[5] == 1
 		local text = ready and "sandvich ready" or "sandvich not ready"
 
 		width, height = draw.GetTextSize(text)

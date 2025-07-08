@@ -1,11 +1,11 @@
 local spy = {}
 
----@param plocal Entity
----@param current_weapon Entity
+---@param pLocal Entity
+---@param pWeapon Entity
 ---@param info Info
 ---@param utils Utils
-function spy:Run(plocal, current_weapon, info, utils)
-	local cloak = plocal:GetPropFloat("m_flCloakMeter")
+function spy:Run(pLocal, pWeapon, info, utils)
+	local cloak = pLocal:GetPropFloat("m_flCloakMeter")
 	local cloak_ratio = cloak / 100 --- 100 is max cloak
 	local width, height = 100, 10
 	local x, y = info.center_x - (width * 0.5), info.start_y

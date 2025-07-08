@@ -1,12 +1,12 @@
 local spectate = {}
 
----@param plocal Entity
+---@param pLocal Entity
 ---@param info Info
 ---@param utils Utils
-function spectate:Run(plocal, info, utils)
-	if not plocal:IsAlive() then
+function spectate:Run(pLocal, info, utils)
+	if not pLocal:IsAlive() then
 		local start_y = info.screen_h // 6
-		local m_hObserverTarget = plocal:GetPropEntity("m_hObserverTarget")
+		local m_hObserverTarget = pLocal:GetPropEntity("m_hObserverTarget")
 
 		if m_hObserverTarget then
 			local text_w, text_h = draw.GetTextSize("spectating")
@@ -26,7 +26,7 @@ function spectate:Run(plocal, info, utils)
 		local resources = entities.GetPlayerResources()
 		if resources then
 			local lp_res = resources:GetPropDataTableFloat("m_flNextRespawnTime")[
-				plocal:GetIndex() + 1 --[[ wtf? is this because 1 is CWorld? not sure ]]
+				pLocal:GetIndex() + 1 --[[ wtf? is this because 1 is CWorld? not sure ]]
 			]
 			local text = string.format("respawn in %i seconds", (lp_res - globals.CurTime()) // 1)
 			local text_w = draw.GetTextSize(text)

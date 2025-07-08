@@ -1,11 +1,11 @@
 local engineer = {}
 
----@param plocal Entity
----@param current_weapon Entity
+---@param pLocal Entity
+---@param pWeapon Entity
 ---@param info Info
 ---@param utils Utils
-function engineer:Run(plocal, current_weapon, info, utils)
-	local ammo_datatable = plocal:GetPropDataTableInt("m_iAmmo")
+function engineer:Run(pLocal, pWeapon, info, utils)
+	local ammo_datatable = pLocal:GetPropDataTableInt("m_iAmmo")
 	local quantity = ammo_datatable[4]
 	local text = string.format("%i / 200", quantity)
 	local metal_w, metal_h = draw.GetTextSize(text)
@@ -14,7 +14,7 @@ function engineer:Run(plocal, current_weapon, info, utils)
 
 	info.start_y = info.start_y + metal_h + 10
 
-	if current_weapon:GetLoadoutSlot() == 3 or current_weapon:GetLoadoutSlot() == 4 then
+	if pWeapon:GetLoadoutSlot() == 3 or pWeapon:GetLoadoutSlot() == 4 then
 		--- really stupid
 		--- and not memory efficient
 		--- but we have modern hardware with 4+ gb of ram so fuck it
@@ -31,7 +31,7 @@ function engineer:Run(plocal, current_weapon, info, utils)
 		local text_x = info.center_x - (total_size // 2)
 		local text_y = info.start_y
 
-		local plocal_index = plocal:GetIndex()
+		local plocal_index = pLocal:GetIndex()
 
 		for _, sentry in pairs(entities.FindByClass("CObjectSentrygun")) do
 			local builder = sentry:GetPropEntity("m_hBuilder")

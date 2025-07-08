@@ -1,11 +1,11 @@
 local demo = {}
 
----@param plocal Entity
----@param current_weapon Entity
+---@param pLocal Entity
+---@param pWeapon Entity
 ---@param info Info
 ---@param utils Utils
-function demo:Run(plocal, current_weapon, info, utils)
-	if current_weapon:GetClass() == "CTFPipebombLauncher" then
+function demo:Run(pLocal, pWeapon, info, utils)
+	if pWeapon:GetClass() == "CTFPipebombLauncher" then
 		local width, height, x, y
 		width, height = 100, 10
 		x, y = info.center_x - (width // 2), info.start_y
@@ -14,11 +14,10 @@ function demo:Run(plocal, current_weapon, info, utils)
 		local MAX_CHARGE_QUICKIE = 1.2 --- seconds
 
 		--- not sure if this works
-		local chosen_max = current_weapon:AttributeHookFloat("sticky_arm_time") == 1 and MAX_CHARGE_STOCK
-			or MAX_CHARGE_QUICKIE
+		local chosen_max = pWeapon:AttributeHookFloat("sticky_arm_time") == 1 and MAX_CHARGE_STOCK or MAX_CHARGE_QUICKIE
 
 		local charge_ratio = (
-			globals.CurTime() - current_weapon:GetPropFloat("PipebombLauncherLocalData", "m_flChargeBeginTime")
+			globals.CurTime() - pWeapon:GetPropFloat("PipebombLauncherLocalData", "m_flChargeBeginTime")
 		) / chosen_max
 
 		if charge_ratio > chosen_max then
@@ -34,7 +33,7 @@ function demo:Run(plocal, current_weapon, info, utils)
 		info.start_y = info.start_y + height + 5
 	end
 
-	local sticky_count = plocal
+	local sticky_count = pLocal
 		:GetEntityForLoadoutSlot(E_LoadoutSlot.LOADOUT_POSITION_SECONDARY)
 		:GetPropInt("PipebombLauncherLocalData", "m_iPipebombCount")
 

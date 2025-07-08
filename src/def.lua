@@ -10,3 +10,10 @@
 ---@field DrawText function
 ---@field DrawColoredText function
 ---@field DrawCrosshair function
+
+---@class WindowInfo
+---@field x integer
+---@field y integer
+---@field width integer
+---@field height integer
+---@field margin integer

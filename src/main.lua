@@ -1,5 +1,7 @@
 ---@module "src.def"
 
+local DEBUG = true
+
 local font_size = 16
 local font = draw.CreateFont("TF2 BUILD", font_size, 600)
 
@@ -42,13 +44,13 @@ local function Draw()
 		return
 	end
 
-	local plocal = entities.GetLocalPlayer()
-	if not plocal then
+	local pLocal = entities.GetLocalPlayer()
+	if not pLocal then
 		return
 	end
 
-	local current_weapon = plocal:GetPropEntity("m_hActiveWeapon")
-	if not current_weapon then
+	local pWeapon = pLocal:GetPropEntity("m_hActiveWeapon")
+	if not pWeapon then
 		return
 	end
 
@@ -109,23 +111,25 @@ local function Draw()
 
 	--- we are dead and spectate did the job
 	--- no need to continue
-	if spectate:Run(plocal, info, utils) then
+	if spectate:Run(pLocal, info, utils) then
 		return
 	end
 
-	local m_iClass = plocal:GetPropInt("m_iClass")
+	local m_iClass = pLocal:GetPropInt("m_iClass")
 
 	--- Handles health and ammo
-	generic:Run(plocal, current_weapon, info, utils)
+	generic:Run(pLocal, pWeapon, info, utils)
 	panel:Run(info, utils)
 
-	DrawDebugInfo()
-
-	if classes[m_iClass] then
-		classes[m_iClass]:Run(plocal, current_weapon, info, utils)
+	if DEBUG then
+		DrawDebugInfo()
 	end
 
-	utils:DrawCrosshair(current_weapon, center_x, center_y)
+	if classes[m_iClass] then
+		classes[m_iClass]:Run(pLocal, pWeapon, info, utils)
+	end
+
+	utils:DrawCrosshair(pWeapon, center_x, center_y)
 end
 
 local function Unload()

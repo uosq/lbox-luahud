@@ -112,9 +112,9 @@ function utils.DrawColoredText(font_size, x, y, text, maxWidth, drawNow)
 	return usedHeight
 end
 
-function utils:DrawCrosshair(current_weapon, center_x, center_y)
+function utils:DrawCrosshair(pWeapon, center_x, center_y)
 	local size = 8
-	local spread = current_weapon:GetWeaponSpread()
+	local spread = pWeapon:GetWeaponSpread()
 	if spread then
 		size = size * (1 + (spread * 10)) // 1
 	end
